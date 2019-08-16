@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="282dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/header" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/linearlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="70dp"
+                android:paddingLeft="32dp"
+                android:paddingRight="32dp"
+                android:paddingTop="20dp">
+
+                <ImageView
+                    android:id="@+id/anchor_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="274dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/pantai1" />
+
+                <Button
+                    android:id="@+id/got_it"
+                    android:layout_width="234dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="29dp"
+                    android:background="@drawable/rounded_button"
+                    android:text="Minta Rekomendasi"
+                    android:textAppearance="@style/rounded_button_text" />
+
+
+                <TextView
+                    style="@style/header"
+                    android:layout_marginTop="48dp"
+                    android:text="SEATRAVELER" />
+
+
+                <TextView
+                    android:id="@+id/long_long_text"
+                    style="@style/privacy_text"
+                    android:layout_marginTop="23dp"
+                    android:text="@string/long_text" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:behavior_hideable="true"
+        app:layout_behavior="com.example.hilmi.seatraveler.OutOfScreenBottomSheetBehavior">
+
+        <Button
+            android:id="@+id/bottom_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@color/colorPrimary"
+            android:text="Minta Rekomendasi"
+            android:textAppearance="@style/rounded_button_text" />
+    </FrameLayout>
+
+
+    <!-- This view serves as the dependency of the of the OutOfScreenBottomSheetBehavior
+     (it has to be a direct child of the CoordinatorLayout) -->
+    <View
+        android:id="@+id/behavior_dependency"
+        android:layout_width="3dp"
+        android:layout_height="2dp"
+        app:layout_anchor="@id/anchor_image"
+        app:layout_anchorGravity="top" />
+
+
+</android.support.design.widget.CoordinatorLayout>
